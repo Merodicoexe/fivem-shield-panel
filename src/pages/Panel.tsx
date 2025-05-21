@@ -3,8 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import Header from "@/components/Header";
 
 type User = {
   email: string;
@@ -17,6 +18,7 @@ const Panel = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [user, setUser] = useState<User | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Check if user is logged in from localStorage
@@ -71,12 +73,18 @@ const Panel = () => {
   if (isLoggedIn) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+        <Header isLoggedIn={true} onLogout={handleLogout} />
+        
         <div className="container mx-auto px-4 py-20">
           <div className="max-w-3xl mx-auto">
             <div className="flex justify-between items-center mb-8">
               <h1 className="text-4xl font-bold">Control Panel</h1>
-              <Button variant="outline" onClick={handleLogout}>
-                Logout
+              <Button 
+                variant="outline" 
+                onClick={() => navigate('/dashboard')}
+                className="mr-2"
+              >
+                Go to Dashboard
               </Button>
             </div>
             <p className="text-xl mb-8 text-gray-300">
@@ -112,6 +120,8 @@ const Panel = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+      <Header isLoggedIn={false} />
+      
       <div className="container mx-auto px-4 py-20">
         <div className="max-w-md mx-auto bg-gray-800 p-8 rounded-lg">
           <h1 className="text-3xl font-bold mb-6">
