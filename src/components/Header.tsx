@@ -15,12 +15,12 @@ const Header = () => {
           </div>
           <div className="flex items-center space-x-4">
             <Button asChild variant="ghost" className="text-white hover:bg-gray-800">
-              <Link to="/panel">
+              <Link to="/panel" className="text-gray-50">
                 Panel
               </Link>
             </Button>
             <Button asChild variant="ghost" className="text-white hover:bg-gray-800">
-              <a href="https://discord.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="text-gray-50">
                 <MessagesSquare className="mr-2 h-4 w-4" />
                 Discord
               </a>
