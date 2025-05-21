@@ -20,10 +20,7 @@ const Header = () => {
               </Link>
             </Button>
             <Button asChild variant="ghost" className="text-white hover:bg-gray-800">
-              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="text-gray-50">
-                <MessagesSquare className="mr-2 h-4 w-4" />
-                Discord
-              </a>
+              
             </Button>
           </div>
         </div>
