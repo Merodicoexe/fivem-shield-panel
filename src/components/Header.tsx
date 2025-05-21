@@ -7,7 +7,7 @@ const Header = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <Button asChild variant="ghost" className="text-white hover:bg-gray-800">
-              <Link to="/" className="color : #111827\n">
+              <Link to="/" className="text-gray-50">
                 <Home className="mr-2 h-4 w-4" />
                 Home
               </Link>
