@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import Header from "@/components/Header";
+import { login, register } from "@/lib/api";
 
 type User = {
   email: string;
@@ -31,37 +32,21 @@ const Panel = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (isLogin) {
-      // Handle login
-      try {
-        // In a real app, this would be an API call to verify credentials
-        // For demonstration, we're simulating a successful login
-        // with localStorage to persist the session
-        const mockUser = { email, id: Date.now() };
-        localStorage.setItem("user", JSON.stringify(mockUser));
-        setUser(mockUser);
-        setIsLoggedIn(true);
-        toast.success("Successfully logged in!");
-      } catch (error) {
-        toast.error("Login failed. Please check your credentials.");
-      }
-    } else {
-      // Handle registration
-      try {
-        // In a real app, this would be an API call to create a user
-        // For demonstration, we're simulating a successful registration
-        // with localStorage to persist the session
-        const mockUser = { email, id: Date.now() };
-        localStorage.setItem("user", JSON.stringify(mockUser));
-        setUser(mockUser);
-        setIsLoggedIn(true);
-        toast.success("Successfully registered!");
-      } catch (error) {
-        toast.error("Registration failed. Please try again.");
-      }
+  
+    try {
+      const userData = isLogin
+        ? await login(email, password)
+        : await register(email, password);
+  
+      localStorage.setItem("user", JSON.stringify(userData));
+      setUser(userData);
+      setIsLoggedIn(true);
+      toast.success(isLogin ? "Successfully logged in!" : "Successfully registered!");
+    } catch (error: any) {
+      toast.error(error.message || "Login/Registration failed.");
     }
   };
+  
 
   const handleLogout = () => {
     localStorage.removeItem("user");
