@@ -39,7 +39,7 @@ const Index = () => {
             <Button size="lg" className="bg-blue-600 hover:bg-blue-700" onClick={handleDemoClick} disabled={isLoading}>
               {isLoading ? "Loading..." : "Start Demo"}
             </Button>
-            <Button size="lg" variant="outline" className="border-gray-500 hover:bg-gray-700">
+            <Button size="lg" variant="outline" className="border-gray-500 bg-slate-50 text-gray-950">
               Learn More <ChevronRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
