@@ -59,7 +59,7 @@ const Index = () => {
                 <p className="text-gray-300">{feature.description}</p>
               </CardContent>
               <CardFooter className="flex justify-between">
-                <Button variant="ghost" className="hover:bg-gray-700">
+                <Button variant="ghost" className="bg-slate-50">
                   Learn more <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </CardFooter>
