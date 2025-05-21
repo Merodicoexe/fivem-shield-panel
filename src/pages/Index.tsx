@@ -1,9 +1,12 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+
 const Index = () => {
   const {
     toast
@@ -26,6 +29,8 @@ const Index = () => {
     }, 2000);
   };
   return <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+      <Header />
+      
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-20">
         <div className="max-w-3xl mx-auto text-center">
